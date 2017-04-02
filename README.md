@@ -1,7 +1,7 @@
 # Scheduler
 
 ## Background
-This web application is for scheduling employees to work. They can see live schedule changes. They can also be notified via text or email whenever a schedule change is made or if there is an announcement.
+This web application is for scheduling employees to work. Employees with credentials can see live schedule changes and they can also be notified via text or email whenever a schedule change is made or if there is an announcement.
 
 ## Login
 In order to use this application, you must have the required login credentials. This ensures that only authorized individuals use this application.
