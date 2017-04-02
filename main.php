@@ -20,7 +20,7 @@ if ($val == 1) {
 }
 
 /* Version Variable */
-$version = 2.0;
+$version = '2.0.1';
 
 ?>
 
