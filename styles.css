@@ -1,0 +1,40 @@
+.asterix {
+	display: inline;
+	color: red;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+.left {
+	text-align: left;
+}
+.white-text {
+	color: #FFF;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 5px 15px;
+}
+body {
+	background: #4ABDAC;
+	color: #DFDCE3;
+}
+.vermillion-bg {
+	background: #FC4A1A;
+}
+.vermillion-color {
+	color: #FC4A1A;
+}
+.blue-color {
+    color: #3a87ad;
+}
+textarea {
+	color: #000;
+	resize: vertical;
+}
+
