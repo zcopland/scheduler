@@ -39,8 +39,8 @@ include 'db/dbh.php';
 			</div><br/>
 			<div id="check-employ">
 <?php
-  $query = "SELECT * FROM employees WHERE mall='Windham'"; //
-	$result = mysqli_query($conn, $query);
+  $query = "SELECT * FROM employees WHERE mall='Windham'";
+  $result = mysqli_query($conn, $query);
 	while ($row = mysqli_fetch_assoc($result)) { 
 		echo <<<TEXT
 <div class="checkbox">
@@ -50,31 +50,6 @@ TEXT;
     }
   
 ?>
-<!--
-			<div class="checkbox">
-			  <label><input type="checkbox" id="Zach_check" name="check_employees[]" value="Zach" checked="true">Zach</label>
-			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" id="Jay_check" name="check_employees[]" value="Jay" checked="true">Jay</label>
-			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" id="Mike_check" name="check_employees[]" value="Mike">Mike</label>
-			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" id="Tommy_check" name="check_employees[]" value="Tommy">Tommy</label>
-			</div>
-
-			<div class="checkbox">
-			  <label><input type="checkbox" id="Cody_check" name="check_employees[]" value="Cody">Cody</label>
-			</div>
-
-			<div class="checkbox">
-			  <label><input type="checkbox" id="Kaitlyn_check" name="check_employees[]" value="Kaitlyn">Kaitlyn</label>
-			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" id="Sherry_check" name="check_employees[]" value="Sherry">Sherry</label>
-			</div>
--->
 			</div>
 			<label class="white-text"><p class="asterix">* </p>How would you like to notify employees?</label>
 			<div class="radio">
