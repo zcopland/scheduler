@@ -24,6 +24,20 @@ if ($val == 1) {
     $underConstruction = false;
 }
 
+$sql = "SELECT * FROM versions ORDER BY id DESC";
+$result = mysqli_query($conn, $sql);
+$index = 0;
+
+/* Current Version Variable */
+$currentVersion = '';
+
+while ($row = mysqli_fetch_assoc($result)) {
+    if ($index == 0) {
+        $currentVersion = $row['version'];
+    }
+    $index++;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -77,6 +91,10 @@ HTML;
       <button class="btn vermillion-bg btn-md pull-right"><a href="create-account.php" class="white-text">Create Account</a></button>
       <br/><br/>
       <button class="btn btn-info btn-md pull-right"><a href="reset-pass.php" class="white-text">Reset Password</a></button>
+      </div>
+      <div class="bottom-footer">
+        <button class="btn btn-sm pull-right"><a href="versions.php" class="white-text">Versions</a></button>
+        <footer class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $currentVersion; ?></footer>
       </div>
 </body>
 </html>
