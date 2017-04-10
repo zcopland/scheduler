@@ -4,6 +4,12 @@ session_start(); //starting session
 $_SESSION['id'] = '';
 $_SESSION['username'] = '';
 
+//see if they are already logged in
+//if so, bring them to the main page
+if (isset($_SESSION['mall'])  || !empty($_SESSION['mall'])) {
+    header('Location: main.php');
+}
+
 include 'db/dbh.php';
 
 /* Site Under Construction Variable */
