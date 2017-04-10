@@ -19,8 +19,20 @@ if ($val == 1) {
     $underConstruction = false;
 }
 
-/* Version Variable */
-$version = '2.1.3';
+$sql = "SELECT * FROM versions ORDER BY id DESC";
+$result = mysqli_query($conn, $sql);
+$index = 0;
+
+/* Current Version Variable */
+$currentVersion = '';
+
+while ($row = mysqli_fetch_assoc($result)) {
+    if ($index == 0) {
+        $currentVersion = $row['version'];
+    }
+    $index++;
+}
+
 
 ?>
 
@@ -154,7 +166,7 @@ TEXT;
 ?>
 <!-- END OF PHP FOR ADMIN STUFF -->
 <button class="btn vermillion-bg" id="logout" onclick="logout();">Logout</button>
-<footer class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $version; ?></footer>
+<footer class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $currentVersion; ?></footer>
 <script type="text/javascript">
 $(document).ready(function() {
   $('#employee-list').hide();
