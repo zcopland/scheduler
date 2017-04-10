@@ -20,7 +20,7 @@ if ($val == 1) {
 }
 
 /* Version Variable */
-$version = '2.1.0';
+$version = '2.1.2';
 
 ?>
 
@@ -153,6 +153,7 @@ TEXT;
 } 
 ?>
 <!-- END OF PHP FOR ADMIN STUFF -->
+<button class="btn vermillion-bg" id="logout" onclick="logout();">Logout</button>
 <footer class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $version; ?></footer>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -205,6 +206,9 @@ $(document).ready(function() {
     });
   });
 });
+function logout() {
+    window.location.href = "logout.php";
+}
 </script>
 </body>
 </html>
