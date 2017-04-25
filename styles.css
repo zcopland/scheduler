@@ -14,6 +14,10 @@ a:hover {
 .white-text {
 	color: #FFF;
 }
+.center {
+    margin: auto;
+    width: 50%;
+}
 table, th, td {
     border: 1px solid black;
 }
@@ -37,9 +41,25 @@ textarea {
 	color: #000;
 	resize: vertical;
 }
+.grey-color {
+    color: #DFDCE3;
+}
+.grey-background {
+    background-color: #DFDCE3;
+}
 .bottom-footer {
    position: absolute;
    bottom: 0;
    width: 100%;
    height: 60px;
+}
+#loginDiv {
+    width: 400px;
+    padding: 70px 30px;
+}
+@media screen and (max-device-width: 480px) {
+    #loginDiv {
+        width: 300px;
+        padding: 30px 30px;
+    }
 }

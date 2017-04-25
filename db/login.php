@@ -6,6 +6,10 @@ include 'dbh.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$remember = '';
+if (isset($_POST['remember'])) {
+    $remember = $_POST['remember'];
+}
 
 $sql = "SELECT * FROM employees WHERE username='$username'";
 $result = mysqli_query($conn, $sql);
@@ -14,6 +18,10 @@ $row = mysqli_fetch_assoc($result);
 
 if (password_verify($password, $row['password'])) {
     //Correct
+    if ($remember == 1) {
+        setcookie('username', $username, time() + 3600 * 7, '/');
+        setcookie('password', $password, time() + 3600 * 7, '/');
+    }
     $date = date("m/d/Y @ g:ia");
     $sql = "UPDATE employees SET lastLogin='$date' WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
