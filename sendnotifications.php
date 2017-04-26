@@ -31,9 +31,9 @@
     //Whether to use SMTP authentication
     $mail->SMTPAuth = true;
     //Username to use for SMTP authentication
-    $mail->Username = "zcopland16@gmail.com";
+    $mail->Username = "";
     //Password to use for SMTP authentication
-    $mail->Password = "zksfrfdddeczaxzy";
+    $mail->Password = "";
     //Blank to email
     $mail->addAddress('');
     
