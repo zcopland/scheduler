@@ -17,7 +17,8 @@ $sql = "INSERT INTO employees(firstName, lastName, username, password, email, ph
 echo $sql;
 $result = mysqli_query($conn, $sql);
 if ($result) {
-    header("Location: ../index.php");
+    //header("Location: ../index.php");
+    header("Location: send-email.php?firstName={$firstName}&lastName={$lastName}&username={$username}");
 } else {
     echo "Failed to process this request. Please go back and try to submit again.";
 }
