@@ -25,36 +25,37 @@ $underConstruction = false;
     <!-------- SITE UNDER CONSTRUCTION ALERT -------->
 <?php endif; ?>
 	<div class="container">
-		<h1 class="white-text">Create an account</h1><br/>
+    	<div id="signUpDiv" class="text-center grey-background center">
+		<h1 class="text-center vermillion-color">Create an account</h1><br/>
 		<form action="db/signup.php" method="POST">
-			<div class="input-group">
+			<div class="input-group center signUpInput">
 				<label for="firstName" class="white-text"><p class="asterix">* </p>First Name:</label>
 				<input type="text" name="firstName" id="firstName" class="form-control" required="true">
 			</div>
-			<div class="input-group">
+			<div class="input-group center signUpInput">
 				<label for="lastName" class="white-text"><p class="asterix">* </p>Last Name:</label>
 				<input type="text" name="lastName" id="lastName" class="form-control" required="true">
 			</div>
-			<div class="input-group">
+			<div class="input-group center signUpInput">
 				<label for="username" class="white-text"><p class="asterix">* </p>Username:</label>
 				<input type="text" name="username" id="username" class="form-control" required="true">
 			</div>
-			<div id="username-short"><small>Username is too short!</small></div>
-			<div id="username-taken"><small><img src="media/red-x.png" height="20" width="20" /> Username is taken!</small></div>
-			<div id="username-allowed"><small><img src="media/green-check.png" height="20" width="20" /> Username is available!</small></div>
-			<div class="input-group">
+			<div id="username-short" class="vermillion-color"><small>Username is too short!</small></div>
+			<div id="username-taken" class="vermillion-color"><small><img src="media/red-x.png" height="20" width="20" /> Username is taken!</small></div>
+			<div id="username-allowed" class="vermillion-color"><small><img src="media/green-check.png" height="20" width="20" /> Username is available!</small></div>
+			<div class="input-group center signUpInput">
 				<label for="password" class="white-text"><p class="asterix">* </p>Password:</label>
 				<input type="password" name="password" id="password" class="form-control" required="true">
 			</div>
-			<div class="input-group">
+			<div class="input-group center signUpInput">
 				<label for="email" class="white-text">Email:</label>
 				<input type="email" name="email" id="email" class="form-control">
 			</div>
-			<div class="input-group">
+			<div class="input-group center signUpInput">
 				<label for="phone" class="white-text"><p class="asterix">* </p>Phone Number:</label>
 				<input type="tel" name="phone" id="phone" class="form-control" placeholder="2075551234" required="true">
 			</div>
-			<div class="input-group">
+			<div class="input-group center signUpInput">
 				<label for="mall" class="white-text"><p class="asterix">* </p>Mall:</label>
 				<select name="mall" class="form-control" required="true">
 				  <option value=""></option>
@@ -66,8 +67,9 @@ $underConstruction = false;
 			<br />
 			<small class="asterix">* fields are required.</small>
 			<br/><br/>
-        	<button name="submit" value="submit" type="submit" id="submitbtn" class="btn btn-success btn-lg">Create</button>
+        	<button name="submit" value="submit" type="submit" id="submitbtn" class="btn btn-success btn-md">Create</button>
 		</form>
+    	</div>
 		<button class="btn vermillion-bg btn-md pull-right"><a href="index.php" class="white-text">Back</a></button>
 	</div>
 	<script>

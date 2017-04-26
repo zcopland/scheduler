@@ -57,9 +57,24 @@ textarea {
     width: 400px;
     padding: 70px 30px;
 }
-@media screen and (max-device-width: 480px) {
+#signUpDiv {
+    width: 400px;
+    margin-top: 20px;
+    padding: 20px 30px;
+}
+.signUpInput {
+    width: 225px;
+}
+@media screen and (max-width: 480px) {
     #loginDiv {
         width: 300px;
         padding: 30px 30px;
+    }
+    #signUpDiv {
+        width: 300px;
+        padding: 30px 30px;
+    }
+    .signUpInput {
+        width: 200px;
     }
 }
