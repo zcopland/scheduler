@@ -90,7 +90,7 @@ HTML;
         </div><br/>
         <div>
           <input type="checkbox" name="remember" id="remember" value="1"/> <label for="remember" class="vermillion-color">Remember me</label>
-          <img src="media/new-gif.gif" alt="New!" style="width:45px; height:45px;"/>
+          <img src="media/new-gif.gif" alt="New!" id="new-gif" style="width:45px; height:45px;"/>
       </div><br/>
         <button name="submit" value="submit" type="submit" class="btn btn-primary btn-md">Log in</button>
       </form><br/>

@@ -65,6 +65,9 @@ textarea {
 .signUpInput {
     width: 225px;
 }
+#new-gif {
+    display: none;
+}
 @media screen and (max-width: 480px) {
     #loginDiv {
         width: 300px;
