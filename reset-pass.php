@@ -37,7 +37,7 @@ if (isset($_SESSION['username-alert']) && $_SESSION['username-alert'] == true) {
 	echo <<<HTML
 	<div class="alert alert-danger alert-dismissable">
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Error!</strong> An error occured.
+		<strong>Error!</strong> Username does not exist.
 	</div>
 HTML;
 }
@@ -50,7 +50,7 @@ if (isset($_SESSION['ver-alert']) && $_SESSION['ver-alert'] == true) {
 	echo <<<HTML
 	<div class="alert alert-danger alert-dismissable">
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Error!</strong> Verification code incorrect.
+		<strong>Error!</strong> Phone or email incorrect.
 	</div>
 HTML;
 }
@@ -60,19 +60,23 @@ HTML;
 		<form method="POST" action="db/reset.php">
 			<div class="input-group">
 				<label for="username"><p class="asterix">* </p>Username:</label>
-				<input type="text" name="username" class="form-control" id="username" autofocus="true" required="true">
+				<input type="text" name="username" class="form-control" id="username" autofocus="true" required="true" />
+			</div><br/>
+			<div class="input-group">
+				<label for="email"><p class="asterix">* </p>Email:</label>
+				<input type="text" name="email" id="email" class="form-control" required="true" placeholder="john@doe.com" />
+			</div><br/>
+			<div class="input-group">
+				<label for="phone"><p class="asterix">* </p>Phone Number:</label>
+				<input type="text" name="phone" id="phone" class="form-control" required="true" placeholder="5551234567" />
 			</div><br/>
 			<div class="input-group">
 				<label for="password1"><p class="asterix">* </p>Password:</label>
-				<input type="password" name="password1" class="form-control" id="password1" required="true">
+				<input type="password" name="password1" class="form-control" id="password1" required="true" />
 			</div><br/>
 			<div class="input-group">
 				<label for="password2"><p class="asterix">* </p>Re-type Password:</label>
-				<input type="password" name="password2" class="form-control" id="password2" required="true">
-			</div><br/>
-			<div class="input-group">
-				<label for="code"><p class="asterix">* </p>Verification Code:</label>
-				<input type="text" name="code" id="code" class="form-control" required="true">
+				<input type="password" name="password2" class="form-control" id="password2" required="true" />
 			</div>
 			<br/><br/>
 			<button name="submit" value="submit" type="submit" class="btn btn-success btn-md">Reset</button>
