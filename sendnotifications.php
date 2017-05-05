@@ -1,11 +1,15 @@
 <?php
+    require_once '../info/Information.php';
+
     //Twilio requirements
-    require __DIR__ . '/twilio-php-master/Twilio/autoload.php';
+    require '../twilio-php-master/Twilio/autoload.php';
     use Twilio\Rest\Client;
     
     //PHPMailer requirements
     date_default_timezone_set('America/New_York');
     require '../PHPMailer/PHPMailerAutoload.php';
+    
+    $information = new Information();
     
     include 'db/dbh.php';
     
@@ -23,7 +27,7 @@
     //Ask for HTML-friendly debug output
     $mail->Debugoutput = 'html';
     //Set the hostname of the mail server
-    $mail->Host = "smtp.gmail.com";
+    $mail->Host = $information->getHost();
     //enable this if you are using gmail smtp, for mandrill app it is not required
     $mail->SMTPSecure = 'tls';
     //Set the SMTP port number - likely to be 25, 465 or 587
@@ -31,9 +35,9 @@
     //Whether to use SMTP authentication
     $mail->SMTPAuth = true;
     //Username to use for SMTP authentication
-    $mail->Username = "";
+    $mail->Username = $information->getUsername();
     //Password to use for SMTP authentication
-    $mail->Password = "";
+    $mail->Password = $information->getPassword();
     //Blank to email
     $mail->addAddress('');
     
@@ -75,8 +79,8 @@
     }
     
     // Step 2: set our AccountSid and AuthToken from https://twilio.com/console
-    $AccountSid = "AC3838f81fcd3dbc7f24fb25695b4137b9";
-    $AuthToken = "98a69e68f2c351d86fd0a3e7c260abbc";
+    $AccountSid = $information->getAccountSid();
+    $AuthToken = $information->getAuthToken();
 
     // Step 3: instantiate a new Twilio Rest Client
     $client = new Client($AccountSid, $AuthToken);

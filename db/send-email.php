@@ -1,8 +1,11 @@
 <?php
- //PHPMailer requirements
+require_once '../../info/Information.php';
+//PHPMailer requirements
 date_default_timezone_set('America/New_York');
 require '../../PHPMailer/PHPMailerAutoload.php';
 include 'dbh.php';
+
+$information = new Information();
 
 $firstName = $_GET['firstName'];
 $lastName = $_GET['lastName'];
@@ -21,7 +24,7 @@ $mail->SMTPDebug = 0;
 //Ask for HTML-friendly debug output
 $mail->Debugoutput = 'html';
 //Set the hostname of the mail server
-$mail->Host = "smtp.gmail.com";
+$mail->Host = $information->getHost();
 //enable this if you are using gmail smtp, for mandrill app it is not required
 $mail->SMTPSecure = 'tls';
 //Set the SMTP port number - likely to be 25, 465 or 587
@@ -29,9 +32,9 @@ $mail->Port = 587;
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
-$mail->Username = "";
+$mail->Username = $information->getUsername();
 //Password to use for SMTP authentication
-$mail->Password = "";
+$mail->Password = $information->getPassword();
 //Blank to email
 $mail->addAddress('zcopland16@gmail.com');
 
