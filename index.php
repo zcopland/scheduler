@@ -56,9 +56,10 @@ while ($row = mysqli_fetch_assoc($result)) {
 <body>
 	</br></br>
     <h1 class="text-center">Please Log in</h1><br/><br/>
-    <div class="container">
-    <div id="loginDiv" class="text-center grey-background center">
-      <h2 class="text-center vermillion-color">Credentials</h2>
+    <div id="wrapper">
+        <div id="content" class="container">
+            <div id="loginDiv" class="text-center grey-background center">
+                <h2 class="text-center vermillion-color">Credentials</h2>
 <!-- Password Alert -->
 <?php
 if (isset($_SESSION['pass-alert-index']) && $_SESSION['pass-alert-index'] == true) {
@@ -98,11 +99,11 @@ HTML;
       <br/><br/>
       <a href="reset-pass.php" class="vermillion-color">I forgot my password</a>
       </div></div>
-      <div class="bottom-footer">
-        <small><p class="text-center">This site uses cookies to stay logged in.</p></small>
-        <button class="btn btn-sm pull-right"><a href="versions.php" class="white-text">Versions</a></button>
-        <footer class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $currentVersion; ?></footer>
-      </div>
+      <div id="footer">
+          <p class="text-center">This site uses cookies to stay logged in.</p>
+          <button class="btn btn-sm pull-right"><a href="versions.php" class="white-text">Versions</a></button>
+          <p class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $currentVersion; ?></p>
+      </div></div>
 <?php
 //check if cookies are set
 if (isset($_COOKIE['username']) && isset($_COOKIE['password'])) {
