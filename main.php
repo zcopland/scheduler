@@ -108,11 +108,13 @@ if ($isAdmin) {
             </div>
 		</div>
 		<div id="weather"></div>
-		
+		<div id='wrap-admin' class="text-center"><div id='calendar' class='admin-calendar'></div></div>
 HTML;
+} else {
+    echo "<div id='wrap-reg' class='text-center'><div id='calendar' class='reg-calendar'></div></div>";
 }
 ?>
-		<div class="text-center"><div id='calendar'></div></div>
+		
 		<div style='clear:both'></div>
 	</div>
 <!-- PHP FOR NON-ADMINS -->
