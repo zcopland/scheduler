@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('America/New_York');
 $isAdmin = $_SESSION['isAdmin'];
 $mall = $_SESSION['mall'];
 if (!isset($_SESSION['mall'])  || empty($_SESSION['mall'])) {
@@ -33,6 +34,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     $index++;
 }
 
+$date = (String) date("Y-m-d");
+
 
 ?>
 
@@ -55,6 +58,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 	<script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
 	<!-- End of FullCalendar -->
 	<script type="text/javascript" src="script.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<link rel="stylesheet" type="text/css" href="main-styles.css">
 </head>
@@ -75,6 +79,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <?php } ?>
     <div id='wrap'>
 <?php 
+echo "<input id='date' type='hidden' value='{$date}'/>";
 if ($isAdmin) {
 	echo <<<HTML
 		<!--div class="input-group">
@@ -102,7 +107,7 @@ if ($isAdmin) {
 		    <button id="deleteBtn" class="btn-sm btn-danger">Archive</button>
             </div>
 		</div>
-		
+		<div id="weather"></div>
 		
 HTML;
 }
