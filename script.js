@@ -183,13 +183,46 @@ $(document).ready(function() {
         }
       }
     });
+    
+    var myEvent, d, text, today;
+    var date = new Date();
+    date.setDate(date.getDate() - 1);
+    
+    $.simpleWeather({
+        woeid: '2357536', //2357536
+        location: 'North Windham, ME',
+        unit: 'f',
+        success: function(weather) {
+          for (var i=0;i<weather.forecast.length;i++) {
+                text = weather.forecast[i].text;
+                text = '~' + text.toString() + '~';
+                date.setDate(date.getDate() + 1);
+                today = date.toISOString();
+                myEvent = {
+                    title: text,
+                    allDay: true,
+                    start: today,
+                    editable: false,
+                    color: '#ad42f4'
+                };
+                $('#calendar').fullCalendar('renderEvent', myEvent);
+          }
+        },
+        error: function(error) {
+            console.log('Weather error: ' + error);
+            console.log("Reloading page...");
+            location.reload();r
+        }
+    });
+    
+    
 
   function getFreshEvents(){
     $.ajax({
       url: 'db/process.php',
           type: 'POST', // Send post data
           data: 'type=fetch',
-          async: false,
+          //async: false,
           success: function(s){
             freshevents = s;
           }
