@@ -25,11 +25,11 @@ $result = mysqli_query($conn, $sql);
 $index = 0;
 
 /* Current Version Variable */
-$currentVersion = '';
+$VERSION     = '';
 
 while ($row = mysqli_fetch_assoc($result)) {
     if ($index == 0) {
-        $currentVersion = $row['version'];
+        $VERSION = $row['version'];
     }
     $index++;
 }
@@ -173,7 +173,7 @@ TEXT;
 ?>
 <!-- END OF PHP FOR ADMIN STUFF -->
 <button class="btn vermillion-bg" id="logout" onclick="logout();">Logout</button>
-<footer class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $currentVersion; ?></footer>
+<footer class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $VERSION; ?></footer>
 <script type="text/javascript">
 $(document).ready(function() {
   $('#employee-list').hide();
