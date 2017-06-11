@@ -13,7 +13,7 @@ $mall = $_POST['mall'];
 $date = date("m/d/Y @ g:ia");
 
 
-$sql = "INSERT INTO employees(firstName, lastName, username, password, email, phone, mall, lastLogin) VALUES ('$firstName', '$lastName', '$username', '$pwd', '$email', '$phone', '$mall', '$date')";
+$sql = "INSERT INTO employees(firstName, lastName, username, password, email, phone, mall, lastLogin) VALUES ('{$firstName}', '{$lastName}', '{$username}', '{$pwd}', '{$email}', '{$phone}', '{$mall}', '{$date}')";
 echo $sql;
 $result = mysqli_query($conn, $sql);
 if ($result) {
