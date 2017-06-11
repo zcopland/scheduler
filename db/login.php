@@ -11,7 +11,7 @@ if (isset($_POST['remember'])) {
     $remember = $_POST['remember'];
 }
 
-$sql = "SELECT * FROM employees WHERE username='$username'";
+$sql = "SELECT * FROM employees WHERE username='{$username}'";
 $result = mysqli_query($conn, $sql);
 
 $row = mysqli_fetch_assoc($result);
@@ -23,7 +23,7 @@ if (password_verify($password, $row['password'])) {
         setcookie('password', $password, time() + 3600 * 7, '/');
     }
     $date = date("m/d/Y @ g:ia");
-    $sql = "UPDATE employees SET lastLogin='$date' WHERE username='$username'";
+    $sql = "UPDATE employees SET lastLogin='{$date}' WHERE username='{$username}'";
     $result = mysqli_query($conn, $sql);
     $_SESSION['loggedIn'] = true;
     $_SESSION['incorrect'] = false;
