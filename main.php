@@ -3,6 +3,12 @@ session_start();
 date_default_timezone_set('America/New_York');
 $isAdmin = $_SESSION['isAdmin'];
 $mall = $_SESSION['mall'];
+$id = $_SESSION['id'];
+$firstName = '';
+$lastName = '';
+$username = '';
+$email = '';
+$phone = '';
 if (!isset($_SESSION['mall'])  || empty($_SESSION['mall'])) {
     header('Location: index.php');
 }
@@ -25,13 +31,23 @@ $result = mysqli_query($conn, $sql);
 $index = 0;
 
 /* Current Version Variable */
-$VERSION     = '';
+$VERSION = '';
 
 while ($row = mysqli_fetch_assoc($result)) {
     if ($index == 0) {
         $VERSION = $row['version'];
     }
     $index++;
+}
+
+$sql = "SELECT * FROM employees WHERE id={$id}";
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_assoc($result)) {
+    $firstName = $row['firstName'];
+    $lastName = $row['lastName'];
+    $username = $row['username'];
+    $email = $row['email'];
+    $phone = $row['phone'];
 }
 
 $date = (String) date("Y-m-d");
@@ -132,6 +148,13 @@ HTML;
 <!-- END OF PHP FOR NON-ADMINS -->
 
 <div class="isAdmin" style="display: none;"><?php echo $isAdmin; ?></div>
+<div id="firstName" style="display: none;"><?php echo $firstName; ?></div>
+<div id="lastName" style="display: none;"><?php echo $lastName; ?></div>
+<div id="username" style="display: none;"><?php echo $username; ?></div>
+<div id="email" style="display: none;"><?php echo $email; ?></div>
+<div id="phone" style="display: none;"><?php echo $phone; ?></div>
+<div id="sql-id" style="display: none;"><?php echo $id; ?></div>
+<div id="mall" style="display: none;"><?php echo $mall; ?></div>
 
 <!-- PHP FOR ADMIN STUFF -->
 <?php
@@ -154,7 +177,7 @@ echo <<<HTML
 <br/><br/>
 HTML;
 
-	$query = "SELECT * FROM employees";
+	$query = "SELECT * FROM employees WHERE mall='{$mall}'";
 	$result = mysqli_query($conn, $query);
 	echo "<div id=\"employee-list\" class=\"container table-responsive\"><table class='table table-hover'><tr><th>Name</th><th>Email</th><th>Phone</th><th>Mall</th><th>Last Login</th></tr>";
 	while ($row = mysqli_fetch_assoc($result)) { 
@@ -172,6 +195,7 @@ TEXT;
 } 
 ?>
 <!-- END OF PHP FOR ADMIN STUFF -->
+<button class="btn vermillion-bg" id="requestChange" onclick="requestChange();">Request Schedule Change</button>
 <button class="btn vermillion-bg" id="logout" onclick="logout();">Logout</button>
 <footer class="text-center">Copyright Zach Copland <?php echo date("Y"); ?>. Version: <?php echo $VERSION; ?></footer>
 <script type="text/javascript">
@@ -227,6 +251,15 @@ $(document).ready(function() {
 });
 function logout() {
     window.location.href = "logout.php";
+}
+function requestChange() {
+    var firstName = $('#firstName').html();
+    var lastName = $('#lastName').html();
+    var username = $('#username').html();
+    var email = $('#email').html();
+    var sql_id = $('#sql-id').html();
+    var mall = $('#mall').html();
+    window.location.href= "request-change.php?firstName=" + firstName + "&lastName=" + lastName + "&username=" + username + "&email=" + email + "&id=" + sql_id + "&mall=" + mall;
 }
 </script>
 </body>
